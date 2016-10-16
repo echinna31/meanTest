@@ -13,7 +13,7 @@ app.use(function(req, res, next) { //allow cross origin requests
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.use(express.static(__dirname +"/tagg2016"));
+app.use(express.static(__dirname +"/public"));
 app.use(bodyparser.json());
 
 app.get('/getnews',function(req,res){
