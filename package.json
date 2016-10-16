@@ -8,5 +8,10 @@
     "start": "node server.js"
   },
   "author": "ep",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0"
+  }
 }
