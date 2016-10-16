@@ -5,7 +5,7 @@ var express = require('express');
 var mongojs = require('mongojs');
 var app = express();
 var db = mongojs('taggnews',['taggnews']);
-var bodyparser =  require('body-parsvaer');
+var bodyparser =  require('body-parser');
 var port = Number(process.env.PORT || 3000);
 app.use(function(req, res, next) { //allow cross origin requests
     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
