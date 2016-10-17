@@ -79,6 +79,11 @@ $http({
         })
     }
 
+    $scope.deleteNews = function(id){
+        $http.delete('/contacts/'+id).success(function (){
+            $scope.getNews();
+        })
+    }
     $scope.editNews = function(id,action){
         if(action=='delete'){
             $http.delete('/contacts/'+id).success(function (){

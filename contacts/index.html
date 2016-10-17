@@ -8,7 +8,7 @@
 
   <div>
       <input class="form-control" ng-model="newsEnter"><button ng-click="addNews();">Add</button><button ng-click="updateNews()">Update</button>
-      <li ng-repeat="news in taggNews">{{news.newsEntry}}<button class="btn-aqua" ng-click="editNews(news._id,edit);">edit</button> <button class="btn-danger" ng-click="editNews(news._id,delete);">delete</button></li>
+      <li ng-repeat="news in taggNews">{{news.newsEntry}}<button class="btn-aqua" ng-click="editNews(news._id,edit);">edit</button> <button class="btn-danger" ng-click="deleteNews(news._id,delete);">delete</button></li>
 
   </div>
 
