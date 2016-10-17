@@ -64,7 +64,7 @@ app.post("/contacts", function(req, res) {
     var newContact = req.body;
     newContact.createDate = new Date();
 
-    if (!(req.body.newsEntry)) {
+    if (!(req.body.comment)) {
         handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
     }
 

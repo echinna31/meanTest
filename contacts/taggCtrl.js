@@ -63,7 +63,7 @@ $http({
     }
 
     $scope.getNews = function(){
-        $http.get("/contacts").success(function(data){
+        $http.get("https://testabc32.herokuapp.com/contacts").success(function(data){
             console.log("Got News");
             $scope.taggNews = data;
             console.log(data)
@@ -72,9 +72,12 @@ $http({
     $scope.addNews=function(addNews){
         console.log($scope.newsEnter)
         var dataformat = {
-            newsEntry:$scope.newsEnter+"",
+            name:$scope.name+"",
+            comment:$scope.newsEnter+"",
+            email:$scope.email+"",
+            show:true
         }
-        $http.post('/contacts',dataformat).success(function (){
+        $http.post('https://testabc32.herokuapp.com/contacts',dataformat).success(function (){
             $scope.getNews();
         })
     }
@@ -93,14 +96,14 @@ $http({
 
             $http.get('/contacts/'+id).success(function (data){
                 $scope.info = data;
-                $scope.newsEnter = data.newsEntry;
+                $scope.newsEnter = data.comment;
             })
         }
 
     }
     $scope.updateNews = function(id,action){
         var dataformat = {
-            newsEntry:$scope.newsEnter+"",
+            comment:$scope.newsEnter+"",
         }
         $http.put('/contacts/'+$scope.info._id,dataformat).success(function (data){
          $scope.getNews();
