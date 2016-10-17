@@ -31,6 +31,12 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
     });
 });
 
+app.use(function(req, res, next) { //allow cross origin requests
+    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 // CONTACTS API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
@@ -58,7 +64,7 @@ app.post("/contacts", function(req, res) {
     var newContact = req.body;
     newContact.createDate = new Date();
 
-    if (!(req.body.firstName || req.body.lastName)) {
+    if (!(req.body.newsEntry)) {
         handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
     }
 
