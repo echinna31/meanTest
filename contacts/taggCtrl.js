@@ -63,7 +63,7 @@ $http({
     }
 
     $scope.getNews = function(){
-        $http.get(url+"/getnews").success(function(data){
+        $http.get("/contacts").success(function(data){
             console.log("Got News");
             $scope.taggNews = data;
             console.log(data)
@@ -74,19 +74,19 @@ $http({
         var dataformat = {
             newsEntry:$scope.newsEnter+"",
         }
-        $http.post(url+'/postnews',dataformat).success(function (){
+        $http.post('/contacts',dataformat).success(function (){
             $scope.getNews();
         })
     }
 
     $scope.editNews = function(id,action){
         if(action=='delete'){
-            $http.delete(url+'/deletenews/'+id).success(function (){
+            $http.delete('/contacts/'+id).success(function (){
                 $scope.getNews();
             })
         }else{
 
-            $http.get(url+'/getnewsbyid/'+id).success(function (data){
+            $http.get('/contacts/'+id).success(function (data){
                 $scope.info = data;
                 $scope.newsEnter = data.newsEntry;
             })
@@ -97,7 +97,7 @@ $http({
         var dataformat = {
             newsEntry:$scope.newsEnter+"",
         }
-        $http.put(url+'/updatenewsbyid/'+$scope.info._id,dataformat).success(function (data){
+        $http.put('/contacts/'+$scope.info._id,dataformat).success(function (data){
          $scope.getNews();
         })
 
